@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <title>Buy Guitars</title>
+    <link rel="Stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <header id="topnav" class="topnav">
+        <h1>Shopping Mart</h1>
+    </header>
+    <section id="cart" class="cart">
+        <div class="product" align="center">
+            <img id="image" src="img/g1.jpg">
+            <div>
+                <button id="prevBtn" type="button" style="display: none" onclick="prevbutton()">Previous</button>
+                <button id="nextBtn" type="button" onclick="nextbutton()">Next</button>
+            </div>
+            <div id="price" class="price"></div>
+            <div id="description" class="content"></div>
+            <div id="shipping" class="shipping">
+            </div>
+            <!-- <div id="shipping" class="shipping"></div> -->
+            <div id="itemsleft" class="itemsleft"></div>
+            <div id="reviews" class="reviews" align="center"></div>
+        </div>
+
+    </section>
+    <footer id="botnav" class="botnav">
+        <p>Designed by Jaddu</p>
+    </footer>
+    <script>
+        let req = new XMLHttpRequest();
+        req.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    product = JSON.parse(this.responseText);
+                };
+                req.open('GET', 'data/guitar.json', true)
+                req.send();
+            }
+    </script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
